@@ -1,5 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load environment variables from .env file
 
 # Initializes FastAPI instance with metadata.
 app = FastAPI(
@@ -22,7 +26,11 @@ app.add_middleware(
 # The root endpoint returns a JSON response with a welcome and status message.
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Nijouzu API", "status": "running"}
+    return {
+        "message": "Welcome to Nijouzu API", 
+        "status": "running",
+        "environment": "development" if os.getenv("DEBUG") == "True" else "production"
+        }
 
 # The health check endpoint returns a JSON response indicating the service is healthy.
 @app.get("/health")

@@ -22,8 +22,8 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Get request to localhost
-        const response = await fetch('http://localhost:8000/')
+        // Get request from the env.
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/`)
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
