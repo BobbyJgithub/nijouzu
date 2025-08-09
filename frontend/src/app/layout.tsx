@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,35 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+
+        <div className="drawer drawer-open">
+          <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content flex flex-col items-center justify-center">
+
+            {children}
+
+          </div>
+          <div className="drawer-side">
+            <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
+            <ul className="menu flex flex-col bg-base-200 gap-5 text-base-content min-h-full p-3 pt-5">
+              {/* Sidebar content here */}
+              <li><button className="btn rounded-field btn-primary btn-sm">Grammar</button></li>
+              <li><button className="btn rounded-field btn-secondary btn-sm">Hiragana</button></li>
+              <li><button className="btn rounded-field btn-accent btn-sm">Katakana</button></li>
+              <li><button className="btn rounded-field btn-neutral btn-sm">Kanji</button></li>
+              <li><button className="btn rounded-field btn-info btn-sm">Vocabulary</button></li>
+              <li>
+                <Link href="/login" className="btn rounded-field bg-sakura hover:bg-sakura/80 text-sakura-content btn-sm">
+                  Sign In
+                </Link>
+              </li>
+              <li>
+                <Link href="/register" className="btn rounded-field bg-sakura hover:bg-sakura/80 text-sakura-content btn-sm">
+                  Register
+                </Link>
+              </li>            </ul>
+          </div>
+        </div>
       </body>
     </html>
   );

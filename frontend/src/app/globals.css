@@ -1,26 +1,117 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
+/* ===== daisyUI Themes ===== */
+@plugin "daisyui/theme" {
+  name: "Nijouzu-light-1";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(98% 0 0);
+  --color-base-200: oklch(96% 0.001 286.375);
+  --color-base-300: oklch(92% 0.004 286.32);
+  --color-base-content: oklch(22.000% 0.006 56.000);
+  --color-primary: oklch(40.284% 0.145 263.900);
+  --color-primary-content: oklch(98% 0.018 155.826);
+  --color-secondary: oklch(51.203% 0.179 24.379);
+  --color-secondary-content: oklch(98% 0.016 73.684);
+  --color-accent: oklch(59% 0.145 163.225);
+  --color-accent-content: oklch(97% 0.014 308.299);
+  --color-neutral: oklch(39.445% 0.032 275.524);
+  --color-neutral-content: oklch(98% 0 0);
+  --color-info: oklch(70.000% 0.120 263.900);
+  --color-info-content: oklch(22.000% 0.006 56.000);
+  --color-success: oklch(69.586% 0.149 162.505);
+  --color-success-content: oklch(22.000% 0.006 56.000);
+  --color-warning: oklch(76.861% 0.165 70.077);
+  --color-warning-content: oklch(22.000% 0.006 56.000);
+  --color-error: oklch(60.203% 0.179 24.379);
+  --color-error-content: oklch(22.000% 0.006 56.000);
+  --color-muted: oklch(39.445% 0.032 275.524);
+  --radius-selector: 2rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.3125rem;
+  --size-field: 0.3125rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+
+  --color-sakura: oklch(91.2% 0.037 17.3);
+  /* pale pink */
+  --color-sakura-content: oklch(22.000% 0.006 56.000);
+}
+
+@plugin "daisyui/theme" {
+  name: "Nijouzu-dark-1";
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(22.000% 0.006 56.000);
+  --color-base-200: oklch(19.000% 0.006 56.000);
+  --color-base-300: oklch(16.000% 0.006 56.000);
+  --color-base-content: oklch(98.445% 0.011 95.259);
+  --color-primary: oklch(40.284% 0.145 263.900);
+  --color-primary-content: oklch(98.445% 0.011 95.259);
+  --color-secondary: oklch(51.203% 0.179 24.379);
+  --color-secondary-content: oklch(98.445% 0.011 95.259);
+  --color-accent: oklch(59% 0.145 163.225);
+  --color-accent-content: oklch(98.445% 0.011 95.259);
+  --color-neutral: oklch(39.445% 0.032 275.524);
+  --color-neutral-content: oklch(98.445% 0.011 95.259);
+  --color-info: oklch(70.000% 0.120 263.900);
+  --color-info-content: oklch(22.000% 0.006 56.000);
+  --color-success: oklch(69.586% 0.149 162.505);
+  --color-success-content: oklch(22.000% 0.006 56.000);
+  --color-warning: oklch(76.861% 0.165 70.077);
+  --color-warning-content: oklch(22.000% 0.006 56.000);
+  --color-error: oklch(60.203% 0.179 24.379);
+  --color-error-content: oklch(22.000% 0.006 56.000);
+  --color-muted: oklch(85% 0.01 95);
+  --radius-selector: 0.3125rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.3125rem;
+  --size-field: 0.3125rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+
+  --color-sakura: oklch(91.2% 0.037 17.3);
+  /* pale pink */
+  --color-sakura-content: oklch(22.000% 0.006 56.000);
+}
+
+@theme {
+  /* Palette */
+  --color-primary-black: #1C1917;
+  /* Kuro */
+  --color-primary-white: #FCFAF2;
+  /* Shiro */
+  --color-primary-blue: #113285;
+  /* Ao */
+  --color-primary-red: #B7282E;
+  /* Aka */
+
+  /* Utility colors used in UI */
+  --color-muted: #D1D4DB;
+
+  --color-sakura: oklch(91.2% 0.037 17.3);
+  /* pale pink */
+  --color-sakura-content: var(--color-base-100);
+
+  /* Fonts */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-japanese: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  font-family: var(--font-sans);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color .3s ease, color .3s ease;
+}
+
+input::-ms-reveal {
+  display: none;
 }
